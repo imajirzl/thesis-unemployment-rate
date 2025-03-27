@@ -23,7 +23,7 @@ if response.status_code == 200:
     with open("data_ind.json", "w", encoding="utf-8") as json_file:
         json.dump(data, json_file, indent=4, ensure_ascii=False)
 
-    print("✅ Data saved as data.json")
+    print("Data saved as data.json")
 
 else:
-    print(f"❌ Failed to fetch data: {response.status_code}")
+    print(f"Failed to fetch data: {response.status_code}")
