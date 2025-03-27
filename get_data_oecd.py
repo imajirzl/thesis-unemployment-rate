@@ -2,7 +2,7 @@ import requests
 import json
 
 # API URL with JSON format
-url = "https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_LFS@DF_IALFS_UNE_M,1.0/USA+DEU..._Z.N._T.Y_GE15..M?startPeriod=1995-01&endPeriod=2024-12&dimensionAtObservation=AllDimensions&format=jsondata"
+url = "https://sdmx.oecd.org/public/rest/data/OECD.SDD.TPS,DSD_LFS@DF_IALFS_UNE_M,1.0/USA+DEU..._Z.N._T.Y_GE15..M?startPeriod=1995-01&endPeriod=2024-12&format=jsondata"
 
 # Send GET request
 response = requests.get(url)
