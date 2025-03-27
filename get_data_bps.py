@@ -27,6 +27,6 @@ records = [
 ]
 
 # Save to CSV
-df = pd.DataFrame(records, columns=["Year", "Quarter", "Unemployment Rate"])
+df = pd.DataFrame(records, columns=["Year", "Quarter", "Unemployment_Rate"])
 df.to_csv("data_ind.csv", index=False)
 print(df)
