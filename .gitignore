@@ -1,0 +1,17 @@
+.venv/
+# Python bytecode files
+*.pyc
+__pycache__
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# IDE or editor files
+.vscode/
+.idea/
