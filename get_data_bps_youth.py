@@ -45,4 +45,23 @@ for key, value in data['datacontent'].items():
         })
 
 df = pd.DataFrame(records)
-print(df)
+
+# pivot to wide format = one column per age group and variable
+df_wide = df.pivot_table(index=['year', 'month', 'var'], columns='age_group', values='value').reset_index()
+# sum total across age groups
+df_wide['Total'] = df_wide[['15-19', '20-24', '25-29']].sum(axis=1)
+# pivot to get total unemployment and labor force in columns
+df_combined = df_wide.pivot(index=['year', 'month'], columns='var', values='Total').reset_index()
+# caculate unemployment rate
+df_combined['Unemployment_Rate'] = df_combined['Total Unemployment'] / df_combined['Total Labor Force'] * 100
+
+# month str to numeric
+month_map_num = {'February': 2, 'August': 8}
+df_combined['month_num'] = df_combined['month'].map(month_map_num)
+df_combined['year_month'] = df_combined['year'].astype(str) + '-' + df_combined['month_num'].astype(str).str.zfill(2)
+
+final_df = df_combined[['year_month', 'Unemployment_Rate']]
+
+print(final_df)
+
+final_df.to_csv("data_ind_youth.csv", index=False)
