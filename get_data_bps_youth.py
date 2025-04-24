@@ -15,4 +15,11 @@ if response.status_code != 200:
 
 data = response.json()
 
-print(data)
+# mappings
+age_group = {1, 2, 3} # youth = 15-19, 20-24, 25-29
+year_map = {item['val']: item['label'] for item in data['tahun']}
+month_map = {item['val']: item['label'] for item in data['turtahun']}
+var_map = {item['val']: item['label'] for item in data['turvar']}
+label_to_var_id = {v: k for k, v in var_map.items()}
+unemployment_id = label_to_var_id['Total Unemployment']
+labor_force_id = label_to_var_id['Total Labor Force']
