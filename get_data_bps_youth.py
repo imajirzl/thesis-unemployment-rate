@@ -16,10 +16,33 @@ if response.status_code != 200:
 data = response.json()
 
 # mappings
-age_group = {1, 2, 3} # youth = 15-19, 20-24, 25-29
+age_map = {1: '15-19', 2: '20-24', 3: '25-29'} # youth 
 year_map = {item['val']: item['label'] for item in data['tahun']}
 month_map = {item['val']: item['label'] for item in data['turtahun']}
 var_map = {item['val']: item['label'] for item in data['turvar']}
 label_to_var_id = {v: k for k, v in var_map.items()}
 unemployment_id = label_to_var_id['Total Unemployment']
 labor_force_id = label_to_var_id['Total Labor Force']
+
+# parse data
+records = []
+for key, value in data['datacontent'].items():
+    key = str(key)
+    
+    age_id = int(key[0])
+    #dataset_id = int(key[1:4])
+    var_id = int(key[4:7])
+    year_id = int(key[7:10])
+    month_id = int(key[10:13])
+
+    if age_id in age_map and var_id in [unemployment_id, labor_force_id]:
+        records.append({
+            'year': year_map.get(year_id),
+            'month': month_map.get(month_id),
+            'age_group': age_map.get(age_id),
+            'var': var_map.get(var_id),
+            'value': value
+        })
+
+df = pd.DataFrame(records)
+print(df)
