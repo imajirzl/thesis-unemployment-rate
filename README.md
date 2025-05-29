@@ -44,7 +44,7 @@ API_KEY=your_api_key_here
 ## 📌 How to Run
 1. Clone this repository:
    ```
-   git clone https://github.com/imajirzl/thesis-unemployment-rate.git
+   git clone https://github.com/imajirzl/thesis-youth-unemployment-id.git
    cd youth-unemployment-id
    ```
 3. (Optional) Create and activate a virtual environment
