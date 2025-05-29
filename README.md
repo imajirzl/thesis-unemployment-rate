@@ -59,3 +59,5 @@ API_KEY=your_api_key_here
 6. Explore and run the notebooks under the `analysis/` folder
 
 ## 📝 License
+This project is licensed under the [MIT License](LICENSE).  
+You are free to use, modify, and distribute this software with proper attribution and without warranty.
