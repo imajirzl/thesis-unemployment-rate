@@ -5,14 +5,10 @@ This is part of a Bachelor's Thesis for the Data Science and Society programme a
 ## 📁 Project Structure
 ```
 ├── analysis/
-│   ├── cleaning_and_eda.ipynb       # Initial practice notebook for data cleaning and EDA
-│   ├── pycaret.ipynb                # PyCaret model comparison for Indonesia, Germany, USA (comparing biannual and monthly level frequency data for forecasting the general unemployment rate)
 │   ├── youth.ipynb                  # Full notebook for forecasting youth unemployment rate: Preprocessing → EDA → Forecasting → Evaluation
 │   └── youth_tuning.ipynb           # Notebook focused on feature engineering and model optimization for youth unemployment forecasting
 │
-├── get_data_bps.py                 # Retrieves, preprocesses and saves data_ind.csv from BPS (general unemployment rate)
 ├── get_data_bps_youth.py           # Retrieves, preprocesses and saves data_ind_youth.csv from BPS (youth unemployment rate)
-├── get_data_oecd.py                # Retrieves, preprocesses and saves data_oecd.csv from OECD (Germany and USA)
 │
 ├── requirements.txt                # Python dependencies
 └── README.md                       # Project documentation and instructions
@@ -51,11 +47,9 @@ API_KEY=your_api_key_here
 3. (Optional) Create and activate a virtual environment
 4. Install required packages/dependencies (see above)
 5. Signup and retrieve WebAPI key for BPS data and set it as an environment variable (see above)
-6. Run the data collection scripts:
+6. Run the data collection script:
   ```
-  python get_data_bps.py
   python get_data_bps_youth.py
-  python get_data_oecd.py
   ```
 6. Explore and run the notebooks under the `analysis/` folder
 
